@@ -24,7 +24,7 @@ var timeInterval = setInterval(function() {
   }, 1000);
 }
 
-// display quiz questions and next button, make next button display whether answer was right or wrong and subtract 10 from timer
+
 /* Quiz questions and answers: 
 const questions = [
   {
@@ -58,24 +58,24 @@ const questions = [
     correctAnswer: "b"
   }
 ];
-
+// display quiz questions and next button, make next button display whether answer was right or wrong and subtract 10 from timer
 
 */
-// when quiz is completed, run highScore
-// HELP how to run questions...for loop? 
+
+// Actual quiz function. HELP how to run questions...for loop? idea is to replace quizContainer content with a new explanationText and 4 buttons 
 function quizBegin() {
 alert ("quiz is beginning");
 }
 
 // calls 
-startBtn.onclick = countdown;
+// HELP this stopped working when I had both functions running on the same button startBtn.onclick = countdown;
 startBtn.onclick = quizBegin;
 highScoreText.onclick = displayHighScores;
 // event listeners
 
 // high score to local storage. make numbered list of high scores in order of highest-lowest. 
 // set information in key, value format to local storage, get information on command and have on a slide
-// have the slide display when the user clicks "highScoreText"
+// have the active page disappear and high score slide display when the user clicks "highScoreText"
 function displayHighScores() {
     alert ('heyo');
 }

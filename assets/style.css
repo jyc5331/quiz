@@ -24,6 +24,17 @@
 }
 /* Question should display in H2 */
 /* Make buttons backgrounds purple, changes to pink on hover, */
-/* Stylize start button */
+/* Stylize start button, this will be generalized to ALL buttons */
+#start {
+    display: flex;
+    margin-left: 25%;
+    background: purple;
+    border-radius: 30px;
+    color: white;
+    
+}
+#start:hover {
+    background: pink;
+} 
 
 /* */
