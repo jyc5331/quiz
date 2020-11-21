@@ -25,7 +25,7 @@
 /* Question should display in H2 */
 /* Make buttons backgrounds purple, changes to pink on hover, */
 /* Stylize start button, this will be generalized to ALL buttons */
-#start {
+#theStartButton {
     display: flex;
     margin-left: 25%;
     background: purple;
@@ -33,7 +33,7 @@
     color: white;
     
 }
-#start:hover {
+#theStartButton:hover {
     background: pink;
 } 
 
