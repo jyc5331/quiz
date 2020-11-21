@@ -25,9 +25,13 @@ var timeInterval = setInterval(function() {
 }
 
 // quiz questions and make sure that correct or wrong displays onclick
+function quizBegin() {
+alert ("quiz is beginning");
+}
 
 // calls 
 startBtn.onclick = countdown;
+startBtn.onclick = quizBegin;
 
 // event listeners
 
