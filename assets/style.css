@@ -18,6 +18,10 @@
 }
 
 /* QUIZ CONTAINER STYLINGS */
+#explanationText{
+    width: 60%;
+    text-align: center;
+}
 /* Question should display in H2 */
 /* Make buttons backgrounds purple, changes to pink on hover, */
 /* Stylize start button */

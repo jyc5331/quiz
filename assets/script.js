@@ -1,13 +1,13 @@
 // global variables and document elements
 var timerEl = document.getElementById('timer');
 var startBtn = document.getElementById('start');
+var quizContainer = document.getElementById('quizContainer');
+var highScoreText = document.getElementById('highScoreText');
 
-// quiz questions and make sure that correct or wrong displays onclick
-
-// timer HELP, make the timer detract -- when the answer is wrong, use && on the if and else if
+// timer HELP timer will detract based on answers from another function 
 function countdown() {
     var timeLeft = 60;
-  
+
 var timeInterval = setInterval(function() {
     if (timeLeft > 1) {
       timerEl.textContent = timeLeft + ' seconds remaining';
@@ -24,9 +24,13 @@ var timeInterval = setInterval(function() {
   }, 1000);
 }
 
+// quiz questions and make sure that correct or wrong displays onclick
+
 // calls 
 startBtn.onclick = countdown;
 
 // event listeners
 
-// high score to local storage
+// high score to local storage. make numbered list of high scores in order of highest-lowest. 
+// set information in key, value format to local storage, get information on command and have on a slide
+// have the slide display when the user clicks "highScoreText"
