@@ -24,7 +24,45 @@ var timeInterval = setInterval(function() {
   }, 1000);
 }
 
-// quiz questions and make sure that correct or wrong displays onclick
+// display quiz questions and next button, make next button display whether answer was right or wrong and subtract 10 from timer
+/* Quiz questions and answers: 
+const questions = [
+  {
+    question: "Select which variable uses the best-practice for casing in JavaScript:",
+    answers: {
+      a: "dangerZone",
+      b: "DangerZone",
+      c: "DANGERZONE",
+      d: "dangerzone"
+    },
+    correctAnswer: "a"
+  },
+  {
+    question: "What does DOM stand for in JavaScript?",
+    answers: {
+      a: "Document Object Map",
+      b: "Document Obliterate Malfeasance",
+      c: "Document Object Noodle"
+      d: "Document Object Model"
+    },
+    correctAnswer: "d"
+  },
+  {
+    question: "Which of the following is considered best practice for incorporating CSS into your HTML",
+    answers: {
+      a: "Incorporating inline in HTML",
+      b: "Linking to an external style sheet",
+      c: "",
+      d: "ESLint"
+    },
+    correctAnswer: "b"
+  }
+];
+
+
+*/
+// when quiz is completed, run highScore
+// HELP how to run questions...for loop? 
 function quizBegin() {
 alert ("quiz is beginning");
 }
@@ -32,9 +70,12 @@ alert ("quiz is beginning");
 // calls 
 startBtn.onclick = countdown;
 startBtn.onclick = quizBegin;
-
+highScoreText.onclick = displayHighScores;
 // event listeners
 
 // high score to local storage. make numbered list of high scores in order of highest-lowest. 
 // set information in key, value format to local storage, get information on command and have on a slide
 // have the slide display when the user clicks "highScoreText"
+function displayHighScores() {
+    alert ('heyo');
+}
