@@ -3,8 +3,12 @@ var timerEl = document.getElementById('timer');
 var startBtn = document.getElementById('theStartButton');
 var quizContainer = document.getElementById('quizContainer');
 var highScoreText = document.getElementById('highScoreText');
+var questionSlide = document.getElementById('questionSlide');
+var highScoreSlide = document.getElementById('highScoreSlide');
+var highScore = [];
 
-// timer HELP timer will detract based on answers from another function 
+
+// timer, starts at 60, displays in 'timer' element, is affected by quizBegin function
 function countdown() {
     var timeLeft = 60;
 
@@ -69,22 +73,22 @@ alert ("quiz is beginning");
 // loop through the questions with: for(var i=0; i <questions.length; i++){
 // var response = HELP something to indicate that the question has been answered
 // if (response == questions[i]. answer){
-    //display Correct! and switch slide to next question
+    //display Correct! in some form of feedback section in quizContainer and switch slide to next question
 // else { display Wrong! text and subtract 10 from timeLeft}
 
 //} end of if statement
 //} end of loop
+// return timeLeft instruct the game to run the displayHighScores function
 } //end of quizBegin function
 
 // calls 
 // HELP this stopped working when I had both functions running on the same button startBtn.onclick = countdown;
 startBtn.onclick = quizBegin;
 highScoreText.onclick = displayHighScores;
-// event listeners
 
 // high score to local storage. make numbered list of high scores in order of highest-lowest. 
 // set information in key, value format to local storage, get information on command and have on a slide
-// have the active page disappear and high score slide display when the user clicks "highScoreText"
+// have the active page disappear and highScoreSlide display when the user clicks "highScoreText"
 function displayHighScores() {
     alert ('heyo');
 }
