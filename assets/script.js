@@ -62,8 +62,8 @@ const questions = [
     correctAnswer: "b"
   }
 ];
-
-
+// HELP Nate notes: a function that chooses a question by taking the count of your questionSlide variable
+// HELP Nate notes: how can I wait to receive an answer before continuing in for loop -or- maintain a global variable that counts what questionSlide you're on, this will only increment when an answer is received
 // Actual quiz function. HELP how to run questions...for loop? idea is to replace quizContainer content with a new explanationText and 4 buttons 
 function quizBegin() {
 alert ("quiz is beginning");
