@@ -64,7 +64,6 @@ var timeInterval = setInterval(function() {
 // HELP Nate notes: a function that chooses a question by taking the count of your questionSlide variable
 // HELP Nate notes: how can I wait to receive an answer before continuing in for loop -or- maintain a global variable that counts what questionSlide you're on, this will only increment when an answer is received
 function quizBegin() {
-alert ("quiz is beginning");
 // HELP hiding the quizContainer.style.display = "none"
 
 // loop through the questions with: for(var i=0; i <questions.length; i++){
