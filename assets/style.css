@@ -44,7 +44,7 @@ body {
     background: pink;
 } 
 
-#theButton {
+.theButton {
     display: flex;
     margin: 10px;
     background: purple;
@@ -53,7 +53,7 @@ body {
     font-size: 100%;
     
 }
-#theButton:hover {
+.theButton:hover {
     background: pink;
 } 
 
