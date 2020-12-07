@@ -8,29 +8,24 @@
   </head>
   <body>
     <header>
-      <button id = "highScoreText"> View High Scores </button> 
-      <p id="timer"> </p>
+      <button id="highScoreText">View High Scores</button>
+      <p id="timer"></p>
     </header>
-    <div class="quizContainer">
+    <div id="quizContainer">
       <div id="quiz"></div>
       <h2>Coding Quiz Challenge</h2>
-      <h3 id="explanationText"> Click the start button to begin a quiz on basic concepts of HTML, CSS, and JavaScript. Keep an eye on the countdown timer in the top right corner. Wrong answers will deduct 10s. Good luck! </h3>
+      <h3 id="explanationText">
+        Click the start button to begin a quiz on basic concepts of HTML, CSS,
+        and JavaScript. Keep an eye on the countdown timer in the top right
+        corner. Wrong answers will deduct 10s. Good luck!
+      </h3>
       <button id="theStartButton">Start Quiz</button>
-    </div>
-    <!--make a container id='questionSlide' that is initally hidden with empty values that the questions array can loop through.-->
-    <div class="questionSlide">
-        <h2 id="question">Sample Question Text</h2> <!--give this an ID to make it easier to populate with your question loop-->
-        <button class="theButton" id="a"> A sample text sentence featuring words. </button>
-        <button class="theButton" id="b"> A sample text sentence featuring words. </button>
-        <button class="theButton" id="c"> A sample text sentence featuring words. </button>
-        <button class="theButton" id="d"> A sample text sentence featuring words. </button>
-        <p id = "feedback"> Sample feedback</p>
-    </div>
-    <div class="highScoreSlide">
+      <div class="highScoreSlide">
         <h2>High Scores!</h2>
-        <ol id=highScoreList>
-            <li> </li>
+        <ol id="highScoreList">
+          <li></li>
         </ol>
+      </div>
     </div>
     <script src="assets/script.js"></script>
   </body>
