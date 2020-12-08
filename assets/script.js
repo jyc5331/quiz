@@ -63,12 +63,19 @@ function countdown() {
   }, 1000);
 }
 
+// showQuestion will write HTML and change which question is displayed on when a button is clicked
 function showQuestion(index) {
+  var questionSelected = event.target.textContent;
   function answerClickHandler() {
     console.log(this.textContent);
     counter += 1;
     showQuestion(counter);
-    // if/else goes here
+    if (questionSelected === correctAnswer) {
+      document.querySelecter("#feedback").innerHTML = "Correct!";
+    } else {
+      timeLeft -= 10;
+      document.querySelecter("#feedback").innerHTML = "Wrong!";
+    }
   }
   document.querySelector("#quizContainer").innerHTML = `
   <h2 id="question"> ${questions[index].question} </h2>
@@ -76,13 +83,13 @@ function showQuestion(index) {
   <button class="theButton" id="b">${questions[index].answers.b}</button>
   <button class="theButton" id="c">${questions[index].answers.c}</button>
   <button class="theButton" id="d">${questions[index].answers.d}</button>
-  <p id="feedback">Sample feedback</p>
+  <p id="feedback"> </p>
   `;
   document.querySelector("#a").addEventListener("click", answerClickHandler);
   document.querySelector("#b").addEventListener("click", answerClickHandler);
   document.querySelector("#c").addEventListener("click", answerClickHandler);
   document.querySelector("#d").addEventListener("click", answerClickHandler);
-} //end of quizBegin function
+}
 
 // calls
 //highScoreText.onClick (displayHighScores);
