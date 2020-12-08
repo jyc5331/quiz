@@ -2,7 +2,7 @@
 var timerEl = document.getElementById("timer");
 var startBtn = document.getElementById("theStartButton");
 var quizContainer = document.getElementById("quizContainer");
-var highScoreText = document.getElementById("highScoreText");
+var highScoreButton = document.getElementById("highScoreButton");
 var questionSlide = document.getElementById("questionSlide");
 var highScoreSlide = document.getElementById("highScoreSlide");
 var highScores = [];
@@ -66,15 +66,18 @@ function countdown() {
 // showQuestion will write HTML and change which question is displayed on when a button is clicked
 function showQuestion(index) {
   var questionSelected = event.target.textContent;
+  var currentAnswer = questions[index].correctAnswer;
   function answerClickHandler() {
-    console.log(this.textContent);
     counter += 1;
     showQuestion(counter);
-    if (questionSelected === correctAnswer) {
-      document.querySelecter("#feedback").innerHTML = "Correct!";
+    if (questionSelected === currentAnswer) {
+      document.querySelecter("#feedback").innerHTML += "Correct!";
     } else {
       timeLeft -= 10;
-      document.querySelecter("#feedback").innerHTML = "Wrong!";
+      document.querySelecter("#feedback").innerHTML += "Wrong!";
+    }
+    if (index >= questions.length) {
+      displayHighScores();
     }
   }
   document.querySelector("#quizContainer").innerHTML = `
@@ -91,6 +94,20 @@ function showQuestion(index) {
   document.querySelector("#d").addEventListener("click", answerClickHandler);
 }
 
+// get high score from localStorage, append the values to individual <li> within highScoreSlide
+
+function displayHighScores() {
+  document.querySelector("#quizContainer").innerHTML = `
+  <div class="highScoreSlide">
+  <h2>High Scores!</h2>
+  <ol id="highScoreList">
+    <li></li>
+  </ol>
+</div>`;
+  // var highScores = JSON.parse(localStorage.getItem("score"));
+  // append scores to highScoreList
+}
+
 // calls
 //highScoreText.onClick (displayHighScores);
 startBtn.addEventListener("click", function (e) {
@@ -98,10 +115,4 @@ startBtn.addEventListener("click", function (e) {
   showQuestion(counter);
 });
 
-// get high score from localStorage, append the values to individual <li> within highScoreSlide
-// have the active page disappear and highScoreSlide display when the user clicks "highScoreText"
-function displayHighScores() {
-  alert("hello");
-  // var highScores = JSON.parse(localStorage.getItem("score"));
-  // append scores to highScoreList
-}
+highScoreButton.addEventListener("click", displayHighScores);

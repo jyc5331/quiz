@@ -2,7 +2,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 /* Basic page layout */
-#highScoreText {
+#highScoreButton {
   color: purple;
   flex: left;
   display: inline;
