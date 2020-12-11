@@ -47,6 +47,8 @@ var questions = [
 
 // timer, starts at 60, displays in 'timer' element, is affected by quizBegin function
 function countdown() {
+  timerEl.textContent = timeLeft + " seconds remaining";
+  timeLeft--;
   timeInterval = setInterval(function () {
     if (timeLeft > 1) {
       timerEl.textContent = timeLeft + " seconds remaining";
@@ -65,19 +67,22 @@ function countdown() {
 
 // showQuestion will write HTML and change which question is displayed on when a button is clicked
 function showQuestion(index) {
-  var questionSelected = event.target.textContent;
-  var currentAnswer = questions[index].correctAnswer;
-  function answerClickHandler() {
+  function answerClickHandler(e) {
+    var answerSelected = e.target.textContent;
+    var correctAnswer = questions[index].correctAnswer;
     counter += 1;
-    showQuestion(counter);
-    if (questionSelected === currentAnswer) {
-      document.querySelecter("#feedback").innerHTML += "Correct!";
+    if (answerSelected === correctAnswer) {
+      document.querySelector("#feedback").innerHTML += "Correct!";
     } else {
       timeLeft -= 10;
-      document.querySelecter("#feedback").innerHTML += "Wrong!";
+      document.querySelector("#feedback").innerHTML += "Wrong!";
     }
-    if (index >= questions.length) {
-      displayHighScores();
+    if (counter >= questions.length) {
+      setTimeout(displayHighScores, 500);
+    } else {
+      setTimeout(function () {
+        showQuestion(counter);
+      }, 500);
     }
   }
   document.querySelector("#quizContainer").innerHTML = `
@@ -97,20 +102,32 @@ function showQuestion(index) {
 // get high score from localStorage, append the values to individual <li> within highScoreSlide
 
 function displayHighScores() {
+  timerEl.textContent = "";
+  clearInterval(timeInterval);
+  console.log(timeLeft);
+  var highScore = localStorage.getItem("highScore");
   document.querySelector("#quizContainer").innerHTML = `
   <div class="highScoreSlide">
+  <label for="initials">Enter your initials:</label>
+  <input type="text" id="initials"  required
+         minlength="1" />
+         <button id="highScoreSave"> Save </button>
   <h2>High Scores!</h2>
   <ol id="highScoreList">
-    <li></li>
+    <li>${highScore}</li>
   </ol>
 </div>`;
-  // var highScores = JSON.parse(localStorage.getItem("score"));
-  // append scores to highScoreList
+  document
+    .querySelector("#highScoreSave")
+    .addEventListener("click", function () {
+      var initials = document.querySelector("#initials").value;
+      localStorage.setItem("highScore", initials + " " + timeLeft);
+    });
 }
 
 // calls
 //highScoreText.onClick (displayHighScores);
-startBtn.addEventListener("click", function (e) {
+startBtn.addEventListener("click", function () {
   countdown();
   showQuestion(counter);
 });
